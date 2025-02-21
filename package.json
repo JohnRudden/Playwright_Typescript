@@ -1,0 +1,23 @@
+{
+  "name": "playwright_using_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "chromium": "npx playwright test --project=chromium",
+    "webkit": "npx playwright test --project=webkit",
+    "firefox": "npx playwright test --project=firefox"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.10.10",
+    "allure-playwright": "^3.2.0"
+  },
+  "dependencies": {
+    "playwright": "^1.50.1"
+  }
+}
