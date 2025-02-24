@@ -23,7 +23,7 @@ test.beforeEach( async ({homePage, registerUser, navbarPage, context}) => {
   await navbarPage.select('logout');
 });
 
-test('Test Case 4 : Logout user' , {tag: ['@Flake']}, async ({page , loginPage, navbarPage, deleteAccountPage}) => {
+test('Test Case 4 : Logout user' , {tag: []}, async ({page , loginPage, navbarPage, deleteAccountPage}) => {
 
   await test.step("Click on 'Signup / Login' button on the Navigation bar", async() => {  
     await navbarPage.select('Signup')

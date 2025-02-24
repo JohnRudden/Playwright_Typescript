@@ -33,7 +33,7 @@ test.beforeEach( async ({homePage, context}) => {
 
 let products : any[] = [];
 
-test("Test Case 14: Place Order: Register while in Checkout " , {tag: ['@Flake']} ,async ({page, navbarPage, modals, productsPage, cartPage, registerUser, checkoutPage, deleteAccountPage}) => {
+test("Test Case 14: Place Order: Register while in Checkout " , {tag: []} ,async ({page, navbarPage, modals, productsPage, cartPage, registerUser, checkoutPage, deleteAccountPage}) => {
 
   await test.step('Verify that home page is visible successfully', async() => {
     await expect(page.getByAltText('Website for automation practice')).toBeVisible();

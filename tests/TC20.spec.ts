@@ -26,7 +26,7 @@ test.beforeEach( async ({homePage, context, registerUser, navbarPage}) => {
   await navbarPage.select('logout')
 });
 
-test('Test Case 20: Search Products and Verify Cart After Login ', {tag: ['@Flake']}, async ({page , cartPage, productsPage, navbarPage, loginPage, deleteAccountPage }) => {
+test('Test Case 20: Search Products and Verify Cart After Login ', {tag: []}, async ({page , cartPage, productsPage, navbarPage, loginPage, deleteAccountPage }) => {
 
   let searchTerm = 'jeans';
   let list: Locator[];
