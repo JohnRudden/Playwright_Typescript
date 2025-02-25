@@ -14,7 +14,7 @@ import Modals  from '../pageobjects/modals.page';
 import CheckoutPage from '../pageobjects/checkout.page';
 import CategoryPage from '../pageobjects/category.page';
 import BrandsPage from '../pageobjects/brands.page';
-import userDetails, { UserDetails } from '../data/testData';
+import  userDetails, { UserDetails } from '../data/testData';
 
 type pageObjects = {
   homePage: HomePage, 
@@ -32,7 +32,8 @@ type pageObjects = {
   checkoutPage: CheckoutPage,
   categoryPage: CategoryPage,
   brandsPage: BrandsPage,
-  registerUser: UserDetails}
+  registerUser: () => Promise<UserDetails>
+}
 
 export const test = base.extend<pageObjects>
 ({
@@ -83,8 +84,8 @@ export const test = base.extend<pageObjects>
   },
 
 
-  registerUser: async({page,loginPage,signupPage,navbarPage}, use) => {
-        const register = async (): Promise<UserDetails> => {
+  registerUser: async({page,loginPage,signupPage,navbarPage}, use ) => {
+        const register = async () => {
         const user = await userDetails();
         await navbarPage.select('Signup')
         await page.waitForURL('**/login');
@@ -97,7 +98,7 @@ export const test = base.extend<pageObjects>
         await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
         return user
         }
-        await use(await register())
+        await use(register)
         
     }
   })
