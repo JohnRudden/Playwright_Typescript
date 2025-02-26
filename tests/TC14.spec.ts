@@ -48,12 +48,12 @@ test("Test Case 14: Place Order: Register while in Checkout " , {tag: []} ,async
     await navbarPage.select('Cart')
     expect(page.url()).toContain('view_cart')
     expect((await cartPage.allProductTableRows()).length).toEqual(2);
-    await expect(cartPage.proceedToCheckout()).toBeEnabled()
+    await expect(cartPage.proceedToCheckout).toBeEnabled()
   });
 
   await test.step("Proceed to checkout " , async() => {
     await page.waitForLoadState('domcontentloaded');
-    await cartPage.proceedToCheckout().click()
+    await cartPage.clickProceedToCheckout();
   })
 
   await test.step("Click the 'Register/Login button' on the checkout modal and proceed to the signup page " , async () => {
@@ -68,13 +68,13 @@ test("Test Case 14: Place Order: Register while in Checkout " , {tag: []} ,async
   await test.step("Go to shopping cart page " , async() => {
     await navbarPage.select('Cart')
     expect(page.url()).toContain('view_cart');
-    await cartPage.productTableRow().first().waitFor({state:"visible"})
+    await cartPage.productTableRow.first().waitFor({state:"visible"})
     expect((await cartPage.allProductTableRows()).length).toEqual(2);
   });
 
   await test.step("Proceed to checkout" , async () => {
     await page.waitForLoadState('domcontentloaded');
-    await cartPage.proceedToCheckout().click()
+    await cartPage.clickProceedToCheckout();
     expect(page.url()).toContain('checkout')
     await page.waitForSelector('#address_delivery');
   })

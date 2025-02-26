@@ -48,12 +48,12 @@ test('Test Case 15: Place Order: Register before Checkout ', {tag: []}, async ({
     await page.waitForEvent('load');
     const productsListPromise = cartPage.allProductTableRows();
     expect((await productsListPromise).length).toEqual(2);
-    await expect(cartPage.proceedToCheckout()).toBeEnabled();
+    await expect(cartPage.proceedToCheckout).toBeEnabled();
   });
 
   await test.step("Proceed to checkout " , async() => {
     await page.waitForLoadState('load')
-    await cartPage.proceedToCheckout().click()
+    await cartPage.clickProceedToCheckout();
    })
 
   await test.step("Verify delivery address details ", async () => {

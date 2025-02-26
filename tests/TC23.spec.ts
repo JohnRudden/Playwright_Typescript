@@ -52,7 +52,7 @@ test('Test Case 23: Verify address details in checkout page ', async ({page , re
 
   await test.step("Proceed to checkout " , async() => {
     await page.waitForLoadState('load')
-    await cartPage.proceedToCheckout().click()
+    await cartPage.proceedToCheckout.click()
   })
   
   await test.step("Verify delivery address details ", async () => {

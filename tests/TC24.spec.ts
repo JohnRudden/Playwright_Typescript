@@ -50,12 +50,12 @@ test("Test Case 24: Download Invoice after purchase order " , {tag: []}, async (
     await navbarPage.select('Cart')
     expect(page.url()).toContain('view_cart')
     expect((await cartPage.allProductTableRows()).length).toEqual(1);
-    await expect(cartPage.proceedToCheckout()).toBeEnabled()
+    await expect(cartPage.proceedToCheckout).toBeEnabled()
   });
 
   await test.step("Proceed to checkout " , async() => {
     await page.waitForLoadState('domcontentloaded');
-    await cartPage.proceedToCheckout().click()
+    await cartPage.proceedToCheckout.click()
   })
 
   await test.step("Click the 'Register/Login button' on the checkout modal and proceed to the signup page " , async () => {
@@ -76,7 +76,7 @@ test("Test Case 24: Download Invoice after purchase order " , {tag: []}, async (
 
   await test.step("Proceed to checkout" , async () => {
     await page.waitForLoadState('domcontentloaded');
-    await cartPage.proceedToCheckout().click()
+    await cartPage.proceedToCheckout.click()
     expect(page.url()).toContain('checkout')
     await page.waitForSelector('#address_delivery');
   })

@@ -56,7 +56,7 @@ test('Test Case 16: Place Order: Login before Checkout ', {tag: []}, async ({pag
   });
 
   await test.step("Proceed to checkout " , async() => {
-    await cartPage.proceedToCheckout().click()
+    await cartPage.clickProceedToCheckout();
    })
 
   await test.step("Verify delivery address details ", async () => {
