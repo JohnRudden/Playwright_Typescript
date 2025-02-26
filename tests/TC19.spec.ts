@@ -20,21 +20,21 @@ test.beforeEach( async ({homePage, context}) => {
 test('Test Case 19: View & Cart Brand Products ', async ({page , brandsPage }) => {
 
   await test.step("Verify Brands section is visible on the left side bar  " , async () => {
-   await expect(brandsPage.brandsHeading()).toBeVisible();
+   await expect(brandsPage.brandsHeading).toBeVisible();
   });
 
   await test.step("Click on any brand name and verify that the correct page is displayed", async () => {
     const productCount = await brandsPage.select('Biba');
     expect(page.url()).toContain('brand_products/Biba');
     await expect(page.getByText('Brand - Biba Products')).toBeVisible();
-    expect((await brandsPage.products()).length).toEqual(productCount);
+    expect((await brandsPage.allProducts()).length).toEqual(productCount);
   });
 
   await test.step("Click on any brand name and verify that the correct page is displayed", async () => {
     const productCount = await brandsPage.select('Polo');
     expect(page.url()).toContain('brand_products/Polo');
     await expect(page.getByText('Brand - Polo Products')).toBeVisible();
-    expect((await brandsPage.products()).length).toEqual(productCount);
+    expect((await brandsPage.allProducts()).length).toEqual(productCount);
   });
 
 });
