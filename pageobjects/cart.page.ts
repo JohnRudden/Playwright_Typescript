@@ -6,7 +6,7 @@ export default class CartPage {
   
   constructor(page: Page) {
 
-   this.page = page
+  this.page = page
 
 }
 // locators
