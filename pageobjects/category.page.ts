@@ -1,19 +1,18 @@
-import {Page, expect} from '@playwright/test'
+import {Locator, Page, expect} from '@playwright/test'
 
 export default class CategoryPage {
  
   readonly page : Page
+  readonly sideBar: Locator
+  readonly categoryHeading: Locator
   
   constructor(page: Page) {
 
-   this.page = page
+  this.page = page
+  this.sideBar = this.page.locator('.left-sidebar')
+  this.categoryHeading = this.sideBar.getByRole('heading', {name: 'Category'})
 
 }
-
-// locators
-
-sideBar = () => this.page.locator('.left-sidebar');
-categoryHeading = () => this.sideBar().getByRole('heading', {name: 'Category'})
 
 // actions
 
@@ -24,7 +23,7 @@ async select(main: string = 'women', subItem : string = 'dress') {
   if (!this.topLevelCategories.includes(main) || !this.subCategories.includes(subItem)) {
     throw Error("Category does not exist")
   }
-  const mainHeading = this.sideBar().getByText(main, {exact: true}).first();
+  const mainHeading = this.sideBar.getByText(main, {exact: true}).first();
   const subHeading = this.page.locator(`#${main}`).getByText(subItem);
   await this.page.waitForLoadState('load');
   await mainHeading.click();

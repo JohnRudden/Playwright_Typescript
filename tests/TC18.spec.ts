@@ -20,7 +20,7 @@ test.beforeEach( async ({homePage, context}) => {
 test('Test Case 18: View Category Products ', async ({page , categoryPage }) => {
 
   await test.step("Verify categories are visible on the left side bar  " , async () => {
-   await expect(categoryPage.categoryHeading()).toBeVisible();
+   await expect(categoryPage.categoryHeading).toBeVisible();
   })
 
   await test.step("Click on category 'Women' and sub category 'Dress' ", async () => {
