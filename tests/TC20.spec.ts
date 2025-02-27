@@ -43,7 +43,7 @@ test('Test Case 20: Search Products and Verify Cart After Login ', {tag: []}, as
   })
 
   await test.step("Check 'All Products' heading is displayed" , async () => {
-    expect(await productsPage.allProductsHeading().textContent()).toEqual('All Products');
+    expect(await productsPage.allProductsHeading.textContent()).toEqual('All Products');
   });
 
   await test.step("Enter product search term and click the search button" , async () => {
