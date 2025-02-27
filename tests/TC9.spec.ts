@@ -31,7 +31,7 @@ test('Test Case 9: Search Product ', async ({page , navbarPage, productsPage, pr
   })
 
   await test.step("Check 'All Products' heading is displayed" , async () => {
-    expect(await productsPage.allProductsHeading().textContent()).toEqual('All Products');
+    expect(await productsPage.allProductsHeading.textContent()).toEqual('All Products');
   });
 
   await test.step("Enter product search term and click the search button" , async () => {

@@ -26,11 +26,11 @@ test('Test Case 22: Add to cart from Recommended items ', async ({page , product
   })
 
   await test.step("Scroll to recommended items section at the bottom of the page" , async () => {
-    await productsPage.recommendedItems().scrollIntoViewIfNeeded();
+    await productsPage.recommendedItems.scrollIntoViewIfNeeded();
   })
 
   await test.step("Add recomended product to the shopping cat ", async () => {
-    await productsPage.recommendedItems().waitFor({state: 'visible'})
+    await productsPage.recommendedItems.waitFor({state: 'visible'})
     products = await productsPage.addRandomQtyToCart(1, 'recommended')
   })
 

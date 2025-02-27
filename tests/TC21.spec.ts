@@ -34,7 +34,7 @@ test('Test Case 21: Add review on product ', async ({page , productsPage, navbar
   })
 
   await test.step("Check 'All Products' heading is displayed" , async () => {
-    expect(await productsPage.allProductsHeading().textContent()).toEqual('All Products');
+    expect(await productsPage.allProductsHeading.textContent()).toEqual('All Products');
   });
 
    await test.step("Click on 'Product View' on any random product " , async() => {

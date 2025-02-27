@@ -37,23 +37,23 @@ test("Test Case 12: Add Products in Cart" , async ({page, navbarPage, productsPa
 
   await test.step("Click on 'Product View' on the first product " , async() => {
     await page.waitForEvent('load');
-    const firstProduct = (await productsPage.productItem().all())[0]
+    const firstProduct = (await productsPage.productItem.all())[0]
     await firstProduct.scrollIntoViewIfNeeded();
     await page.locator('.choose > .nav > li > a').first().hover();
     const addToCartBtn = firstProduct.locator('.overlay-content').getByText("Add to cart")
     await firstProduct.hover();
     await addToCartBtn.click();
-    await productsPage.continueShoppingBtn().click();
+    await productsPage.continueShoppingBtn.click();
 });
 
 
 await test.step("Click on 'Product View' on the second product " , async() => {
-  const secondProduct = (await productsPage.productItem().all())[1]
+  const secondProduct = (await productsPage.productItem.all())[1]
   await page.locator('.choose > .nav > li > a').nth(1).hover();
   const addToCartBtn = secondProduct.locator('.overlay-content').getByText("Add to cart")
   await secondProduct.hover();
   await addToCartBtn.click();
-  await productsPage.continueShoppingBtn().click();
+  await productsPage.continueShoppingBtn.click();
 });
 
 await test.step("Go to shopping cart page " , async() => {

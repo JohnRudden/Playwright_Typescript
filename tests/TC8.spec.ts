@@ -30,7 +30,7 @@ test('Test Case 8: Verify All Products and product detail page ', async ({page ,
     })
 
     await test.step("Check 'All Products' heading is displayed" , async () => {
-      expect(await productsPage.allProductsHeading().textContent()).toEqual('All Products');
+      expect(await productsPage.allProductsHeading.textContent()).toEqual('All Products');
     });
 
     await test.step("Verify that the product list is visible" , async() => {

@@ -48,7 +48,7 @@ test("Test Case 13: Verify Product quantity in Cart" , async ({page, navbarPage,
     await page.waitForLoadState('load');
     await productDetailPage.addToCart.click();
     const modalPromise = page.waitForResponse(/add_to_cart/);
-    await productsPage.continueShoppingBtn().click();
+    await productsPage.continueShoppingBtn.click();
     const fulfilled = await modalPromise
   })
 
