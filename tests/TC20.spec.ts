@@ -96,7 +96,7 @@ test('Test Case 20: Search Products and Verify Cart After Login ', {tag: []}, as
 
   await test.step("Verify that 'Account Deleted!' is visible", async () => {
     expect(page.url()).toContain('delete_account');
-    await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
+    await expect(deleteAccountPage.successMessageHeading).toBeVisible();
   })
 
 })

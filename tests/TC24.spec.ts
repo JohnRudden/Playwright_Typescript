@@ -135,9 +135,8 @@ test("Test Case 24: Download Invoice after purchase order " , {tag: []}, async (
 
   await test.step("Verify that 'Account Deleted!' is visible", async () => {
     expect(page.url()).toContain('delete_account');
-    await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
-    await deleteAccountPage.continueBtn().waitFor({state: 'visible'})
-    await deleteAccountPage.continueBtn().click();
+    await expect(deleteAccountPage.successMessageHeading).toBeVisible();
+    await deleteAccountPage.clickContinueBtn();
     await expect(navbarPage.navItem('Signup')).toBeVisible()
   })
 })

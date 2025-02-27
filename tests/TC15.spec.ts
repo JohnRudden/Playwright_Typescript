@@ -99,8 +99,8 @@ await test.step("Enter card payment details " , async() => {
 
   await test.step("Verify that 'Account Deleted!' is visible", async () => {
     expect(page.url()).toContain('delete_account');
-    await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
-    await deleteAccountPage.continueBtn().click()
+    await expect(deleteAccountPage.successMessageHeading).toBeVisible();
+    await deleteAccountPage.clickContinueBtn();
     expect(page.url()).not.toContain('delete_account');
     await expect(navbarPage.navItem('Signup')).toBeVisible()
   })

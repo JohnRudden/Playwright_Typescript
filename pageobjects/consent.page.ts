@@ -14,8 +14,8 @@ export default class ConsentPage {
   
 // actions
 async accept() {
-const isBtnVisible = await this.consentBtn().isVisible();
-if (isBtnVisible) await this.consentBtn().click();
+const isBtnVisible = await this.consentBtn.isVisible();
+if (isBtnVisible) await this.consentBtn.click();
 }
 
 }

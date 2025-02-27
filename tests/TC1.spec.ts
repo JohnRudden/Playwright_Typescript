@@ -82,11 +82,11 @@ test('Test Case 1: Register User', async ({page , loginPage, navbarPage, signupP
 
     await test.step("Verify that 'Account Deleted!' is visible", async () => {
       expect(page.url()).toContain('delete_account');
-      await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
+      await expect(deleteAccountPage.successMessageHeading).toBeVisible();
     })
 
     await test.step("Click 'Continue' button", async () => {
-      await deleteAccountPage.continueBtn().click();
+      await deleteAccountPage.clickContinueBtn();
       expect(page.url()).not.toContain('delete_account');
       await expect(page.getByAltText('Website for automation practice')).toBeVisible();
       expect(page.url()).toContain('www.automationexercise.com')

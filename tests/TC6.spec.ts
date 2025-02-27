@@ -28,7 +28,7 @@ test("Test Case 6: Contact Us Form" , async ({page, navbarPage, contactPage}) =>
     expect(page.url()).toContain('www.automationexercise.com')
   });
 
-  await test.step("Click on the 'Contat us' button ", async () => {
+  await test.step("Click on the 'Contact us' button ", async () => {
     expect(page.url()).not.toContain('contact us')
     await navbarPage.select(' Contact us')
     await page.waitForURL('**/contact_us');
@@ -36,18 +36,18 @@ test("Test Case 6: Contact Us Form" , async ({page, navbarPage, contactPage}) =>
 
   await test.step("Verify that the user is navigated to the contact us page successfully, and 'Get In Touch' is displayed ", async () => {
      expect(page.url()).toContain('contact_us');
-     await expect(contactPage.getInTouchHeading()).toBeVisible()
+     await expect(contactPage.getInTouchHeading).toBeVisible()
   })
 
   await test.step("Enter name, email, subject and message" , async () => {
-    await contactPage.name().fill((await userDetails()).name);
-    await contactPage.email().fill((await userDetails()).email);
-    await contactPage.subject().fill('Subject line');
-    await contactPage.message().fill('This is an automated test message');
+    await contactPage.name.fill((await userDetails()).name);
+    await contactPage.email.fill((await userDetails()).email);
+    await contactPage.subject.fill('Subject line');
+    await contactPage.message.fill('This is an automated test message');
   })
 
   await test.step("Choose file for upload...." , async ()=> {
-    const chooseFile = contactPage.uploadFileBtn();
+    const chooseFile = contactPage.uploadFileBtn;
     await chooseFile.setInputFiles(path.join('data', 'blankUploadFile.txt'));
   })
 
@@ -55,7 +55,7 @@ test("Test Case 6: Contact Us Form" , async ({page, navbarPage, contactPage}) =>
     page.once('dialog', dialog => {
       dialog.accept()});
   })
-    await contactPage.submitBtn().click()
+    await contactPage.submitBtn.click()
     await expect(page.locator('#contact-page').getByText("Success! Your details have been submitted successfully.")).toBeVisible()
 });
 

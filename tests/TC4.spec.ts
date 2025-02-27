@@ -52,6 +52,6 @@ test('Test Case 4 : Logout user' , {tag: []}, async ({page , loginPage, navbarPa
       await loginPage.login(user.email, user.password)
       await navbarPage.select('delete account')
       await page.waitForURL('**/delete_account')
-      await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
+      await expect(deleteAccountPage.successMessageHeading).toBeVisible();
   })
   })

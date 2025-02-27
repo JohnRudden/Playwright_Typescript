@@ -42,6 +42,6 @@ test('Test Case 2: Login User with correct email and password', async ({page , l
 
   await test.step("Verify that 'Account Deleted!' is visible", async () => {
     expect(page.url()).toContain('delete_account');
-    await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
+    await expect(deleteAccountPage.successMessageHeading).toBeVisible();
   })
 })

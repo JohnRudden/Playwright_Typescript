@@ -70,7 +70,7 @@ test('Test Case 23: Verify address details in checkout page ', async ({page , re
 
   await test.step("Verify that 'Account Deleted!' is visible", async () => {
     expect(page.url()).toContain('delete_account');
-    await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
+    await expect(deleteAccountPage.successMessageHeading).toBeVisible();
   })
 });
 

@@ -75,8 +75,8 @@ test('Test Case 16: Place Order: Login before Checkout ', {tag: []}, async ({pag
   })
 
   await test.step("Enter message and place order" , async () => {
-    await checkoutPage.textMsgArea().fill('Automated test');
-    await checkoutPage.placeOrder().click();
+    await checkoutPage.textMsgArea.fill('Automated test');
+    await checkoutPage.placeOrder.click();
     expect(page.url()).toContain('payment')
   });
 
@@ -102,8 +102,8 @@ test('Test Case 16: Place Order: Login before Checkout ', {tag: []}, async ({pag
 
   await test.step("Verify that 'Account Deleted!' is visible", async () => {
     expect(page.url()).toContain('delete_account');
-    await expect(deleteAccountPage.successMessageHeading()).toBeVisible();
-    await deleteAccountPage.continueBtn().click();
+    await expect(deleteAccountPage.successMessageHeading).toBeVisible();
+    await deleteAccountPage.clickContinueBtn();
     await page.waitForURL('/', {waitUntil: 'load'});
     await expect(navbarPage.navItem('Signup')).toBeVisible()
   })
