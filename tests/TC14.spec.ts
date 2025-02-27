@@ -57,7 +57,7 @@ test("Test Case 14: Place Order: Register while in Checkout " , {tag: []} ,async
   })
 
   await test.step("Click the 'Register/Login button' on the checkout modal and proceed to the signup page " , async () => {
-    await modals.registerOrLogin().click()
+    await modals.registerOrLogin.click()
     expect(page.url()).toContain('login')
   })
 
