@@ -8,18 +8,11 @@ export default class BrandsPage {
   readonly product: Locator
   
   constructor(page: Page) {
-
-   this.page = page
-   this.sideBar = this.page.locator('.left-sidebar');
-   this.brandsHeading= this.sideBar.getByRole('heading', {name: 'Brands'})
-   this.product = this.page.locator('.single-products');
+      this.page = page
+      this.sideBar = page.locator('.left-sidebar');
+      this.brandsHeading= this.sideBar.getByRole('heading', {name: 'Brands'})
+      this.product = page.locator('.single-products');
 }
-
-// locators
-
-// sideBar = () => this.page.locator('.left-sidebar');
-// brandsHeading = () => this.sideBar().getByRole('heading', {name: 'Brands'})
-// products = async () => await this.page.locator('.single-products').all()
 
 // actions
 

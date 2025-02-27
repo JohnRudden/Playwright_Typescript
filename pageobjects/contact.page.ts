@@ -1,24 +1,28 @@
-import {Page} from '@playwright/test'
+import {Locator, Page} from '@playwright/test'
 
 export default class ContactPage {
  
   readonly page : Page
+  readonly contactFormSection : Locator
+  readonly getInTouchHeading : Locator
+  readonly name : Locator
+  readonly email : Locator
+  readonly message :  Locator
+  readonly subject : Locator
+  readonly uploadFileBtn : Locator
+  readonly submitBtn : Locator
   
   constructor(page: Page) {
-
-   this.page = page
-
+    this.page = page;
+    this.contactFormSection = page.locator('.contact-form');
+    this.getInTouchHeading = this.contactFormSection.getByRole('heading' , {name: 'get in touch'});  
+    this.name = page.getByPlaceholder('name');
+    this.email = this.contactFormSection.locator('input[name="email"]');
+    this.subject = page.getByPlaceholder('subject');
+    this.message = page.getByPlaceholder('your message here');
+    this.uploadFileBtn = page.locator('input[name="upload_file"]')
+    this.submitBtn = this.contactFormSection.locator('input[name="submit"]')
 }
-// locators
-contactFormSection = () => this.page.locator('.contact-form');
-getInTouchHeading = () => this.contactFormSection().getByRole('heading' , {name: 'get in touch'})
-name = () => this.page.getByPlaceholder('name');
-email = () => this.contactFormSection().getByPlaceholder('email');
-subject = () => this.page.getByPlaceholder('subject');
-message = () => this.page.getByPlaceholder('your message here');
-uploadFileBtn = () => this.page.locator('input[name="upload_file"]');
-submitBtn = () => this.contactFormSection().locator('input[name="submit"]')
-
 
 // actions
 

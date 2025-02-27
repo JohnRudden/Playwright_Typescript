@@ -26,7 +26,6 @@ test('Test Case 17: Remove Products From Cart ', async ({page , productsPage, na
 
   await test.step("Add 3 products to cart " , async () => {
     products = await productsPage.addRandomQtyToCart(2);
-    console.log(products)
   })
   
   await test.step("Go to shopping cart page " , async() => {

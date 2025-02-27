@@ -95,8 +95,8 @@ test("Test Case 24: Download Invoice after purchase order " , {tag: []}, async (
  })
 
   await test.step("Enter message and place order" , async () => {
-    await checkoutPage.textMsgArea().fill('Automated test');
-    await checkoutPage.placeOrder().click();
+    await checkoutPage.textMsgArea.fill('Automated test');
+    await checkoutPage.placeOrder.click();
     expect(page.url()).toContain('payment')
   });
 

@@ -1,17 +1,17 @@
-import {Page} from '@playwright/test'
+import {Locator, Page} from '@playwright/test'
 
 export default class ConsentPage {
  
   readonly page : Page
+  readonly consentBtn: Locator
   
   constructor(page: Page) {
 
    this.page = page
+   this.consentBtn = page.getByRole('button', {name:/consent/i});
 
-}
-// locators
-consentBtn = () => this.page.getByRole('button', {name:/consent/i});
-
+  }
+  
 // actions
 async accept() {
 const isBtnVisible = await this.consentBtn().isVisible();

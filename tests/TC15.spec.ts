@@ -72,8 +72,8 @@ test('Test Case 15: Place Order: Register before Checkout ', {tag: []}, async ({
   })
 
   await test.step("Enter message and place order" , async () => {
-    await checkoutPage.textMsgArea().fill('Automated test');
-    await checkoutPage.placeOrder().click();
+    await checkoutPage.textMsgArea.fill('Automated test');
+    await checkoutPage.placeOrder.click();
     expect(page.url()).toContain('payment')
   });
 

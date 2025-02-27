@@ -12,13 +12,12 @@ export default class CartPage {
   readonly cartIsEmpty: Locator
 
   constructor(page: Page) {
-
-  this.page = page
-  this.cartInfoTable = this.page.locator('#cart_info_table');
-  this.cartInfoTableBody = this.cartInfoTable.locator('tbody');
-  this.productTableRow = this.cartInfoTableBody.locator('tr');
-  this.proceedToCheckout = this.page.locator('text=Proceed To Checkout');
-  this.cartIsEmpty = this.page.getByText('Cart is empty!')
+      this.page = page
+      this.cartInfoTable = page.locator('#cart_info_table');
+      this.cartInfoTableBody = this.cartInfoTable.locator('tbody');
+      this.productTableRow = this.cartInfoTableBody.locator('tr');
+      this.proceedToCheckout = page.locator('text=Proceed To Checkout');
+      this.cartIsEmpty = page.getByText('Cart is empty!');
 
 }
 

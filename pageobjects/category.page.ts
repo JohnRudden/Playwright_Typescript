@@ -7,11 +7,9 @@ export default class CategoryPage {
   readonly categoryHeading: Locator
   
   constructor(page: Page) {
-
-  this.page = page
-  this.sideBar = this.page.locator('.left-sidebar')
-  this.categoryHeading = this.sideBar.getByRole('heading', {name: 'Category'})
-
+      this.page = page
+      this.sideBar = page.locator('.left-sidebar')
+      this.categoryHeading = this.sideBar.getByRole('heading', {name: 'Category'})
 }
 
 // actions
