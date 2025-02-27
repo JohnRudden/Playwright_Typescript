@@ -26,14 +26,14 @@ test.beforeEach( async ({homePage, registerUser, consentPage, context}) => {
 test('Test Case 2: Login User with correct email and password', async ({page , loginPage, navbarPage, deleteAccountPage}) => {
 
   await test.step("Ensure 'Log in to your account' is displayed" , async () => {
-    await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
+    await expect(navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
     await navbarPage.select('logout')
     await expect(page.getByText('Login to your account')).toBeVisible();
   })
 
   await test.step("Enter name and email address and log in" , async ()=> {
     await loginPage.login(user.email, user.password)
-    await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
+    await expect(navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
   })
 
   await test.step("Click 'Delete Account' button", async () => {

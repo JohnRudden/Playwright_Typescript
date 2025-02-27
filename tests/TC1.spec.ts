@@ -73,7 +73,7 @@ test('Test Case 1: Register User', async ({page , loginPage, navbarPage, signupP
     })
 
     await test.step("Verify that 'Logged in as username' is visible", async () => {
-      await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
+      await expect(navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
     })
 
     await test.step("Click 'Delete Account' button", async () => {

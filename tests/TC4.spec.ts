@@ -36,8 +36,8 @@ test('Test Case 4 : Logout user' , {tag: []}, async ({page , loginPage, navbarPa
 
   await test.step("Enter name and email address and log in and 'Logged in as username' is visible" , async ()=> {
     await loginPage.login(user.email, user.password)
-    await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
-    await expect(navbarPage.navItem('Logout')).toBeVisible();
+    await expect(navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
+    await expect(await navbarPage.navItem('Logout')).toBeVisible();
     expect(page.url()).not.toContain('login')
   })
 

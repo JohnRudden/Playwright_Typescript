@@ -44,9 +44,9 @@ test("Test Case 13: Verify Product quantity in Cart" , async ({page, navbarPage,
 });
 
   await test.step("Increase quantity to 4 and add to cart " , async ()=> {
-    await productDetailPage.quantity().fill('4');
+    await productDetailPage.quantity.fill('4');
     await page.waitForLoadState('load');
-    await productDetailPage.addToCart().click();
+    await productDetailPage.addToCart.click();
     const modalPromise = page.waitForResponse(/add_to_cart/);
     await productsPage.continueShoppingBtn().click();
     const fulfilled = await modalPromise

@@ -43,19 +43,19 @@ test('Test Case 21: Add review on product ', async ({page , productsPage, navbar
   });
 
   await test.step("Verify review form is visible " , async() => {
-    await expect(productDetailPage.reviewForm()).toBeVisible();
+    await expect(productDetailPage.reviewForm).toBeVisible();
     await expect( page.getByPlaceholder('Add Review Here!')).toBeVisible()
   });
 
   await test.step("Enter review information...." , async () => {
-    await productDetailPage.nameInput().fill(`${user.firstName} ${user.lastName}`)
-    await productDetailPage.emailInput().fill(`${user.email}`)
-    await productDetailPage.reviewContent().fill("This is an automated review test.....")
+    await productDetailPage.nameInput.fill(`${user.firstName} ${user.lastName}`)
+    await productDetailPage.emailInput.fill(`${user.email}`)
+    await productDetailPage.reviewContent.fill("This is an automated review test.....")
   })
 
   await test.step("Submit review and check success message is displayed" , async () => {
-    await productDetailPage.submitBtn().click();
-    await expect(productDetailPage.reviewForm().getByText('Thank you for your review.')).toBeVisible()
+    await productDetailPage.submitBtn.click();
+    await expect(productDetailPage.reviewForm.getByText('Thank you for your review.')).toBeVisible()
   })
 
 });

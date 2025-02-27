@@ -95,7 +95,7 @@ export const test = base.extend<pageObjects>
         await signupPage.createAccountBtn().click()
         await expect(signupPage.accountCreatedMsg()).toBeVisible()
         await signupPage.continueBtn().click();
-        await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
+        await expect(navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
         return user
         }
         await use(register)

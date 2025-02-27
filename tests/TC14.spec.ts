@@ -123,7 +123,7 @@ test("Test Case 14: Place Order: Register while in Checkout " , {tag: []} ,async
     expect(page.url()).toContain('delete_account');
     await expect(deleteAccountPage.successMessageHeading).toBeVisible();
     await deleteAccountPage.clickContinueBtn();
-    await expect(navbarPage.navItem('Signup')).toBeVisible()
+    await expect(await navbarPage.navItem('Signup')).toBeVisible()
   })
 })
 

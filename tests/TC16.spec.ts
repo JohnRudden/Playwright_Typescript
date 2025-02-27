@@ -40,7 +40,7 @@ test('Test Case 16: Place Order: Login before Checkout ', {tag: []}, async ({pag
 
   await test.step("Enter name and email address and log in" , async ()=> {
     await loginPage.login(user.email, user.password)
-    await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
+    await expect(navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
     await page.waitForLoadState('domcontentloaded');
   })
   

@@ -75,8 +75,8 @@ test('Test Case 20: Search Products and Verify Cart After Login ', {tag: []}, as
   await test.step("Enter name and email address and log in and 'Logged in as username' is visible" , async ()=> {
     await navbarPage.select('Signup')
     await loginPage.login(user.email, user.password)
-    await expect(navbarPage.loggedInUser().filter({ hasText: `${user.name}`})).toBeVisible()
-    await expect(navbarPage.navItem('Logout')).toBeVisible();
+    await expect(await navbarPage.loggedInUser.filter({ hasText: `${user.name}`})).toBeVisible()
+    await expect(await navbarPage.navItem('Logout')).toBeVisible();
     expect(page.url()).not.toContain('login')
     })
 
