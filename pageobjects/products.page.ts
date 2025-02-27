@@ -3,36 +3,30 @@ import {Locator, Page, expect} from '@playwright/test'
 export default class ProductsPage {
  
   readonly page : Page
+  readonly allProductsHeading: Locator
+  readonly productListParent: Locator
+  readonly productItem: Locator
+  readonly searchInput: Locator
+  readonly searchBtn: Locator
+  readonly cartParent: Locator
+  readonly continueShoppingBtn: Locator
+  readonly recommendedItems: Locator
+  readonly recommendedItemsCarousel: Locator
+  readonly activeRecommendedItems: Locator
  
   constructor(page: Page) {
-
-   this.page = page
-
+    this.page = page
+    this.allProductsHeading = page.getByRole('heading', {name: 'All Products'});;
+    this.productListParent = page.locator('.features_items');
+    this.productItem = this.productListParent.locator('.product-image-wrapper > .single-products');
+    this.searchInput = page.getByPlaceholder('Search Product');
+    this.searchBtn = this.searchInput.locator('..').locator('#submit_search');
+    this.cartParent = page.locator('#cartModal');
+    this.continueShoppingBtn = this.cartParent.getByText('Continue Shopping');
+    this.recommendedItems = page.locator('.recommended_items');
+    this.recommendedItemsCarousel = this.recommendedItems.locator('#recommended-item-carousel');
+    this.activeRecommendedItems = this.recommendedItemsCarousel.locator('.item.active').locator('.product-image-wrapper > .single-products');
 }
-
-// locators
-
-allProductsHeading = () => this.page.getByRole('heading', {name: 'All Products'});
-
-productListParent = () => this.page.locator('.features_items')
-
-productItem = () => this.productListParent().locator('.product-image-wrapper > .single-products')
-
-searchInput = () => this.page.getByPlaceholder('Search Product');
-
-searchBtn = () => this.searchInput().locator('..').locator('#submit_search');
-
-cartParent = () => this.page.locator('#cartModal');
-
-continueShoppingBtn = () => this.cartParent().getByText('Continue Shopping');
-
-recommendedItems = () => this.page.locator('.recommended_items');
-
-recommendedItemsCarousel = () => this.recommendedItems().locator('#recommended-item-carousel');
-
-activeRecommendedItems = () => this.recommendedItemsCarousel().locator('.item.active').locator('.product-image-wrapper > .single-products')
-
-
 
 // actions
 
@@ -55,18 +49,18 @@ async selectRandomRecommendedItem(): Promise<any> {
   
 async productList(): Promise<any> {
   await this.page.waitForLoadState('domcontentloaded')
-  const productList = await this.productItem().all()
+  const productList = await this.productItem.all()
   return productList
   }
 
 async activeRecommendedList(): Promise<any> {
-  return await this.activeRecommendedItems().all();
+  return await this.activeRecommendedItems.all();
   }
 
 async performSearch(text: string) {
   await this.page.waitForEvent('load');
-  await this.searchInput().fill(text);
-  await this.searchBtn().click();
+  await this.searchInput.fill(text);
+  await this.searchBtn.click();
 }
 
 async addRandomQtyToCart(quantity: number = 1, productSection: string = "featured") {
@@ -93,7 +87,7 @@ async addRandomQtyToCart(quantity: number = 1, productSection: string = "feature
     if (!productCapture.some(item => item.productName === productObj.productName)) {
       productCapture.push(productObj );
       await (await (item.getByText("Add to cart"))).first().click();
-      await this.continueShoppingBtn().click();
+      await this.continueShoppingBtn.click();
       i++
       } 
     }
@@ -111,7 +105,7 @@ async addAllToCart(list: any) {
     if (!productCapture.some(item => item.productName === productObj.productName)) {
       await (await (list[i]).getByText("Add to cart")).first().click();
       productCapture.push(productObj );
-      await this.continueShoppingBtn().click();
+      await this.continueShoppingBtn.click();
       i++
     } 
     }

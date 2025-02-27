@@ -4,10 +4,9 @@ import {Page, expect} from '@playwright/test'
 export default class SignupPage {
   readonly page : Page
   readonly userDetails: any
+  
   constructor(page: Page) {
-
-   this.page = page
-
+    this.page = page
 }
 
 // Locators
@@ -30,13 +29,9 @@ state = () => this.page.getByRole('textbox', { name: 'State *', exact: true })
 city = () => this. page.getByRole('textbox', { name: 'City'})
 zipcode = () => this.page.locator('[data-qa="zipcode"]')
 mobile = () => this.page.getByRole('textbox', { name: 'Mobile Number *', exact: true })
-
 createAccountBtn = () => this.page.getByRole('button', {name:'Create Account'})
-
 accountCreatedMsg = () => this.page.getByRole('heading', {name: "Account Created!"})
-
 continueBtn = () => this.page.getByRole('link', {name: "Continue"})
-
 
 // actions
 
