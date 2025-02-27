@@ -24,14 +24,14 @@ test("Test Case 10 : Test Case 10: Verify Subscription in home page" , async ({p
   })
 
   await test.step("Scroll down to footer and verify text 'Subscription'" , async() => {
-    await footerPage.subscriptionHeading().scrollIntoViewIfNeeded()
-    await expect(footerPage.subscriptionHeading()).toHaveText('Subscription')
+    await footerPage.subscriptionHeading.scrollIntoViewIfNeeded()
+    await expect(footerPage.subscriptionHeading).toHaveText('Subscription')
   })
 
   await test.step("Enter email address, click arrow button and verify success message" , async () => {
     const email = (await userDetails()).email;
-    await footerPage.emailInput().fill(email);
-    await (await footerPage.subscribeBtn()).click();
+    await footerPage.emailInput.fill(email);
+    await (await footerPage.subscribeBtn).click();
     await expect(page.locator('#success-subscribe')).toBeVisible()
   })
 })

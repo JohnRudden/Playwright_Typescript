@@ -24,14 +24,14 @@ test("Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functi
   })
 
   await test.step("Scroll down to footer and verify text 'Subscription'" , async() => {
-    await footerPage.subscriptionHeading().scrollIntoViewIfNeeded()
-    await expect(footerPage.subscriptionHeading()).toHaveText('Subscription')
+    await footerPage.subscriptionHeading.scrollIntoViewIfNeeded()
+    await expect(footerPage.subscriptionHeading).toHaveText('Subscription')
   })
 
   await test.step("Click scroll up arrow and verify that the page has gone back to the top" , async () => {
     let targetText = false;
     while (!targetText) {
-    await homePage.arrowUp().click();
+    await homePage.arrowUp.click();
     targetText = await page.getByText("Full-Fledged practice website for Automation Engineers").first().isVisible()
     }
     await expect(page.getByText("Full-Fledged practice website for Automation Engineers").first()).toBeInViewport();

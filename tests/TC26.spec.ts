@@ -24,8 +24,8 @@ test("Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down func
   })
 
   await test.step("Scroll down to footer and verify text 'Subscription'" , async() => {
-    await footerPage.subscriptionHeading().scrollIntoViewIfNeeded()
-    await expect(footerPage.subscriptionHeading()).toHaveText('Subscription')
+    await footerPage.subscriptionHeading.scrollIntoViewIfNeeded()
+    await expect(footerPage.subscriptionHeading).toHaveText('Subscription')
   })
 
   await test.step("Scroll up to the the top where the text 'Full-Fledged practice website for Automation Engineers' is displayed " , async () => {

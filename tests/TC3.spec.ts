@@ -24,12 +24,12 @@ test('Test Case 3 : Login user with incorrect email and password' , async ({page
   })
 
   await test.step("Verify 'Login to your account' is visible" , async ()=> {
-    await expect(loginPage.loginHeading()).toBeVisible();
+    await expect(loginPage.loginHeading).toBeVisible();
   })
 
   await test.step("Attempt to login with incorrect email address and password and verify error message is displayed" , async () => {
     await loginPage.login('az123456@9a8b765sz.com', 'wrngwngrg')
-    await expect(loginPage.loginErrorMessage()).toBeVisible()
+    await expect(loginPage.loginErrorMessage).toBeVisible()
   })
 
 })

@@ -45,6 +45,6 @@ test("Text Case 5 : Attempt to Register user with existing email" , async ({page
   })
 
   await test.step("Verify error message is diplayed indicating that the email address is already registered" , async ()=> {
-    await expect(loginPage.signupErrorMessage()).toBeVisible();
+    await expect(loginPage.signupErrorMessage).toBeVisible();
   })
 })

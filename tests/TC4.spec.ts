@@ -31,7 +31,7 @@ test('Test Case 4 : Logout user' , {tag: []}, async ({page , loginPage, navbarPa
   })
 
   await test.step("Verify 'Login to your account' is visible" , async ()=> {
-    await expect(loginPage.loginHeading()).toBeVisible();
+    await expect(loginPage.loginHeading).toBeVisible();
   })
 
   await test.step("Enter name and email address and log in and 'Logged in as username' is visible" , async ()=> {
@@ -44,7 +44,7 @@ test('Test Case 4 : Logout user' , {tag: []}, async ({page , loginPage, navbarPa
   await test.step("Log the user out and ensure that the user is navigated to the login page" , async () => {
       await navbarPage.select('logout')
       expect(page.url()).toContain('login')
-      await expect(loginPage.loginHeading()).toBeVisible();
+      await expect(loginPage.loginHeading).toBeVisible();
   })
 
   await test.step("Delete the user ", async () => {

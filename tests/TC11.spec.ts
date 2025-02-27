@@ -30,17 +30,17 @@ test("Test Case 11: Verify Subscription in Cart page " , async ({page, navbarPag
   })
 
   await test.step("Scroll down to footer and verify text 'Subscription'" , async() => {
-    await footerPage.subscriptionHeading().scrollIntoViewIfNeeded();
+    await footerPage.subscriptionHeading.scrollIntoViewIfNeeded();
     await page.waitForLoadState('load');
-    await expect(footerPage.subscriptionHeading()).toHaveText('Subscription')
+    await expect(footerPage.subscriptionHeading).toHaveText('Subscription')
   })
 
   await test.step("Enter email address, click arrow button and verify success message" , async () => {
     const email = (await userDetails()).email;
-    await (await footerPage.subscribeBtn()).waitFor({state: 'visible'})
-    await footerPage.emailInput().click();
-    await footerPage.emailInput().fill(email);
-    await (await footerPage.subscribeBtn()).click();
+    await (await footerPage.subscribeBtn).waitFor({state: 'visible'})
+    await footerPage.emailInput.click();
+    await footerPage.emailInput.fill(email);
+    await (await footerPage.subscribeBtn).click();
     await expect(page.locator('#success-subscribe')).toBeVisible()
   })
 
