@@ -137,6 +137,6 @@ test("Test Case 24: Download Invoice after purchase order " , {tag: []}, async (
     expect(page.url()).toContain('delete_account');
     await expect(deleteAccountPage.successMessageHeading).toBeVisible();
     await deleteAccountPage.clickContinueBtn();
-    await expect(navbarPage.navItem('Signup')).toBeVisible()
+    await expect(await navbarPage.navItem('Signup')).toBeVisible()
   })
 })

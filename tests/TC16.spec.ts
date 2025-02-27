@@ -105,7 +105,7 @@ test('Test Case 16: Place Order: Login before Checkout ', {tag: []}, async ({pag
     await expect(deleteAccountPage.successMessageHeading).toBeVisible();
     await deleteAccountPage.clickContinueBtn();
     await page.waitForURL('/', {waitUntil: 'load'});
-    await expect(navbarPage.navItem('Signup')).toBeVisible()
+    await expect(await navbarPage.navItem('Signup')).toBeVisible()
   })
 
 });

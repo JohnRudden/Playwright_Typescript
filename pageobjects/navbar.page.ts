@@ -1,21 +1,24 @@
-import {Page} from '@playwright/test'
+import {Locator, Page} from '@playwright/test'
 
 export default class NavBarPage {
   readonly page : Page
+  readonly nav: Locator
+  readonly loggedInUser: Locator
+
   constructor(page: Page) {
    this.page = page
+   this.nav = page.locator('.nav');
+   this.loggedInUser = page.locator('#header .nav li');
   }
-
-// locators
-
-// navItem = (item: string) => this.page.locator('.nav').getByRole('link' , {name: `${item}`});
-navItem = (item: string) => this.page.getByRole('listitem').getByRole('link' , {name: `${item}`});
-loggedInUser = () => this.page.locator('#header .nav li');
 
 // actions
 
+async navItem(item: string) {
+return this.nav.getByRole('link' , {name: `${item}`});
+} 
+
 async select(item: string) {
-await this.navItem(item).click()
+await (await this.navItem(item)).click()
 }
 
 }
