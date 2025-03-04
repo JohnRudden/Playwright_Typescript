@@ -9,7 +9,6 @@ Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functional
 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
 */
 
-
 import { test, expect} from '../fixtures/basePage';
 
 test.beforeEach( async ({homePage, context}) => {
