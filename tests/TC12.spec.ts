@@ -20,7 +20,7 @@ test.beforeEach( async ({homePage, context}) => {
 
 test("Test Case 12: Add Products in Cart" , async ({page, navbarPage, productsPage, cartPage}) => {
 
-  await test.step('Verify that home page is visible successfully', async() => {
+  await test.step('Verify that home page is visible successfully ', async() => {
     await expect(page.getByAltText('Website for automation practice')).toBeVisible();
     expect(page.url()).toContain('www.automationexercise.com');
   })
