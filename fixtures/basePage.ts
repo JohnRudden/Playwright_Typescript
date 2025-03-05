@@ -32,10 +32,15 @@ type pageObjects = {
   checkoutPage: CheckoutPage,
   categoryPage: CategoryPage,
   brandsPage: BrandsPage,
+}
+
+type actionFunctions = {
   registerUser: () => Promise<UserDetails>
 }
 
-export const test = base.extend<pageObjects>
+type fixtureExtend = pageObjects & actionFunctions;
+
+export const test = base.extend<fixtureExtend>
 ({
   homePage: async({page}, use) => {
     await use(new HomePage(page))
@@ -99,7 +104,6 @@ export const test = base.extend<pageObjects>
         return user
         }
         await use(register)
-        
     }
   })
 
